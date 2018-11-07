@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 
 using std::string;
 
@@ -10,7 +11,7 @@ enum Faculty {
 
 	FMI,
 	TU,
-	UNWE,
+	UNSS,
 	UNDEFINED = -1
 
 };
@@ -20,12 +21,14 @@ class Student {
 public:
 
 	Student();
-	Student(const string&, const Faculty&);
+	Student(const string, const Faculty&);
 
 public:
 
 	const string getName() const;
 	const Faculty getFaculty() const;
+	const string getFacultyAsString() const;
+	void setName(const string);
 
 private:
 
@@ -33,5 +36,6 @@ private:
 	Faculty university;
 
 };
+
 
 #endif //!__STUDENT_HEADER__

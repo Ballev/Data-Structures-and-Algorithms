@@ -15,7 +15,7 @@ DynamicArray::DynamicArray(const queue & newQueue) : curSize(1), cap(2) {
 	
   }
 
-	arr[curSize] = newQueue;
+	arr[0] = newQueue;
 
 }
 
@@ -106,6 +106,16 @@ const size_t DynamicArray::getCurSize() const {
 
 }
 
+void DynamicArray::print() {
+
+	for (size_t i = 0; i < curSize; ++i) {
+
+		std::cout << "Line" << i << ": ";
+		arr[i].print();
+
+	}
+}
+
 void DynamicArray::clean() {
 
 	delete[] arr;
@@ -146,6 +156,7 @@ void DynamicArray::copyFrom(const DynamicArray & other) {
 
 	clean();
 	arr = new(std::nothrow) queue[other.cap];
+	
 	if (!arr) {
 
 		std::cerr << "Problem with allocating memory!" << std::endl;

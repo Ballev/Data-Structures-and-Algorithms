@@ -7,7 +7,7 @@
 
 #include "LinkedList.h"
 
-typedef int queue;
+typedef LinkedList queue;
 
 class DynamicArray {
 
@@ -26,7 +26,7 @@ public:
 	void insertAt(const queue&, size_t);
 	void removeAt(size_t);
 	const size_t getCurSize() const;
-	void appendLists(LinkedList&, const LinkedList&);
+	void appendQueues(LinkedList&, const LinkedList&);
 	void print();
 
 private:
@@ -42,3 +42,5 @@ private:
 	size_t cap;
 
 };
+
+#endif // !__DYNAMICARRAY_HEADER__
