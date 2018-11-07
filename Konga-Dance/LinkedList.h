@@ -1,6 +1,7 @@
 //Lists with all the operations for adding/removing students.
 // Linked list is useful, because insertion and deletion are faster.
 
+
 #ifndef __LINKEDLIST_HEADER__
 #define __LINKEDLIST_HEADER__
 
@@ -10,11 +11,10 @@ class LinkedList {
 
 public:
 	
-	// From the description of the task I concluded that we will not copy the 
 	LinkedList();
 	LinkedList(const Student&);
-	LinkedList(const LinkedList&) = delete;
-	LinkedList& operator=(const LinkedList&) = delete;
+	LinkedList(const LinkedList&);
+	LinkedList& operator=(const LinkedList&);
 	~LinkedList();
 
 	//Functions for working with the queues.
@@ -26,10 +26,12 @@ public:
 	void removeLast();
 	void removeFirst();
 	void remove(size_t);
+	const size_t gerCurSize() const;
 
 private:
 
 	void clean();
+	void copyFrom(const LinkedList&);
 	bool isEmpty();
 	bool isComparable(const Student&, size_t pos);
 

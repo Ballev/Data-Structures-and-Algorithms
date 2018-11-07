@@ -1,7 +1,6 @@
 #include "Student.h"
 
 
-
 Student::Student() : name(nullptr), university(UNDEFINED)
 {}
 

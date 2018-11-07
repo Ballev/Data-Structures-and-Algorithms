@@ -13,7 +13,6 @@ class DynamicArray {
 
 public:
 
-public:
 	DynamicArray();
 	DynamicArray(const queue&);
 	DynamicArray(const DynamicArray&);
@@ -21,6 +20,7 @@ public:
 	~DynamicArray();
 
 public:
+
 	void add(const queue&);
 	void removeLast();
 	void insertAt(const queue&, size_t);

@@ -1,6 +1,4 @@
-#include <iostream>
 #include "DynamicArray.h"
-
 
 
 DynamicArray::DynamicArray() : arr(nullptr), curSize(0), cap(0)
@@ -119,16 +117,13 @@ void DynamicArray::clean() {
 
 void DynamicArray::resize() {
 
-	if (curSize == 0) {
-
+	if (curSize == 0) 
 		cap = 1;
-
-	}
-
 	else 
 		cap = 2 * curSize;
 
 	queue* temp = new(std::nothrow) queue[cap];
+	
 	if (!temp) {
 
 		std::cerr << "Problem with allocating memory!" << std::endl;
@@ -156,7 +151,7 @@ void DynamicArray::copyFrom(const DynamicArray & other) {
 		std::cerr << "Problem with allocating memory!" << std::endl;
 		return;
 
-}
+	}
 
 	for (size_t i = 0; i < other.curSize; ++i) {
 
