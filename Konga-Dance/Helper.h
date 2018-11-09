@@ -4,7 +4,8 @@
 
 #include "DynamicArray.h"
 
-size_t wordCnt(const string&);
+size_t strlen(const string&);
+const size_t wordCnt(const string&);
 void useInput(const string&);
 
 

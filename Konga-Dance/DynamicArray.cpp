@@ -52,24 +52,26 @@ void DynamicArray::add(const queue & newQueue) {
 
 }
 
-void DynamicArray::removeLast() {
+void DynamicArray::removeLast(size_t queueNumber) {
+	
+	arr[queueNumber].removeLast();
 
-	if (curSize)
-		--curSize;
-	else
-		std::cerr << "Already empty!" << std::endl;
+}
+
+void DynamicArray::removeFirst(size_t queueNumber) {
+
+	arr[queueNumber].removeFirst();
 
 }
 
 void DynamicArray::insertAt(const queue & newQueue, size_t pos) {
 
+	if (cap <= curSize)
+		resize();
+
 	if (pos >= curSize)
 		add(newQueue);
-
 	else {
-
-		if (cap <= curSize)
-			resize();
 
 		for (size_t i = curSize; i > pos; --i) {
 
@@ -83,26 +85,28 @@ void DynamicArray::insertAt(const queue & newQueue, size_t pos) {
 	}
 }
 
-void DynamicArray::removeAt(size_t pos) {
+void DynamicArray::removeAt(const string & _name, size_t queueNumber) {
 
-	if (pos >= curSize || curSize == 1)
-		removeLast();
-	else {
+	if (queueNumber >= curSize || curSize == 1)
+		removeLast(queueNumber);
+	else
+		arr[queueNumber];
 
-		for (size_t i = pos; i < curSize - 1; ++i) {
-
-			arr[i] = arr[i + 1];
-
-		}
-
-		--curSize;
-
-	}
 }
 
 const size_t DynamicArray::getCurSize() const {
 
 	return curSize;
+
+}
+
+void DynamicArray::mergeQueues(size_t queue1, size_t gueue2) {
+
+}
+
+void DynamicArray::append(const Student & newStudent, size_t queueNumber) {
+
+	arr[queueNumber].addAtEnd(newStudent);
 
 }
 

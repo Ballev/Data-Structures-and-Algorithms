@@ -43,3 +43,23 @@ void Student::setName(const string _name) {
 	name = _name;
 
 }
+
+void Student::setFaculty(const string & _faculty) {
+
+
+	if (_faculty == "FMI")
+		university = FMI;
+
+	else if (_faculty == "TU")
+		university = TU;
+
+	else if (_faculty == "UNSS")
+		university = UNSS;
+
+	else {
+
+		std::cerr << "Western spy! Not allowed here!" << std::endl;
+		university = UNDEFINED;
+
+	}
+}

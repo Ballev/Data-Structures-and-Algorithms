@@ -22,11 +22,13 @@ public:
 public:
 
 	void add(const queue&);
-	void removeLast();
+	void removeLast(size_t);
+	void removeFirst(size_t);
 	void insertAt(const queue&, size_t);
-	void removeAt(size_t);
+	void removeAt(const string&, size_t);
 	const size_t getCurSize() const;
-	void appendQueues(LinkedList&, const LinkedList&);
+	void mergeQueues(size_t, size_t);
+	void append(const Student&, size_t);
 	void print();
 
 private:

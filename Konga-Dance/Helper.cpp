@@ -1,7 +1,20 @@
 #include "Helper.h"
 
+size_t strlen(const string & input) {
+
+	size_t len = 0, i = 0;
+	while (input[i++]) {
+
+		++len;
+
+	}
+
+	return len;
+
+}
+
 // Assuming correct input is given.
-size_t wordCnt(const string & input) {
+ const size_t wordCnt(const string & input) {
 
 	size_t words = 1, i = 0;
 	while (input[i] != '\0') {
@@ -10,9 +23,11 @@ size_t wordCnt(const string & input) {
 			++words;
 	
 		++i;
+	
 	}
 
 	return words;
+
 }
 
 void useInput(const string& input) {
@@ -21,48 +36,76 @@ void useInput(const string& input) {
 	LinkedList queue;
 	Student s;
 	size_t wordsNumber = wordCnt(input);
+	size_t inputLen = strlen(input);
+	string* tempWords = new string[wordsNumber];
 	string tempWord;
-	size_t i = 0;
+	size_t i = 0, j = 0, k = 0;
 
 	do {
 
+		do {
 
-		--wordsNumber;
-	} while (wordsNumber);
+			tempWord[k] = input[i];
+			
+			++i;
+			++k;
+			
+			if(input[i] == ' ') {
+			
+				tempWords[j++] = tempWord;
+				k = 0;
+				std::cout << tempWords[j - 1] << "  " << tempWord << std::endl;
 
-	do {
+			}
 
-		if (tempWord == "print") {
+		} while (input[i]);
+
+		if (tempWords[0] == "print") {
 			arr.print();
 
 		}
 
-		else if (tempWord == "merge") {
+		else if (tempWords[0] == "merge") {
 
+			size_t casted1 = std::stoi(tempWords[1]);
+			size_t casted2 = std::stoi(tempWords[2]);
 
+			//.mergeQueues(casted1, casted2);
 
 		}
 
-		else if (tempWord == "remove") {
+		else if (tempWords[0] == "remove") {
 			
-			//queue.remove();
+			size_t casted = std::stoi(tempWords[2]);
+			arr.removeAt(tempWords[1], casted);
 
 		}
 
-		else if (tempWord == "removeFirst") {
+		else if (tempWords[0] == "removeFirst") {
 
+			size_t casted = std::stoi(tempWords[1]);
+			arr.removeFirst(casted);
+		
+		}
+
+		else if (tempWords[0] == "removeLast") {
+
+			size_t casted = std::stoi(tempWords[1]);
+			arr.removeLast(casted);
 
 		}
 
-		else if (tempWord == "removeLast") {
+		else if (tempWords[0] == "append") {
 
+			Student s;
+			s.setName(tempWords[1]);
+			s.setFaculty(tempWords[2]);
+
+			size_t casted = std::stoi(tempWords[3]);
+			//arr.append(s, casted);
 
 		}
 
-		else if (tempWord == "append") {
+	} while (tempWords[0] != "quit");
 
-
-		}
-
-	} while (tempWord != "quit");
 }

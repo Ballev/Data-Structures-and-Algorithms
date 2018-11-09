@@ -29,6 +29,7 @@ public:
 	const Faculty getFaculty() const;
 	const string getFacultyAsString() const;
 	void setName(const string);
+	void setFaculty(const string&);
 
 private:
 

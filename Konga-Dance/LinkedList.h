@@ -12,8 +12,6 @@ class LinkedList {
 public:
 	
 	LinkedList();
-	// From the description of the task it follows that the queues will not be copied,
-	// only changed.
 	LinkedList(const LinkedList&) = delete;
 	LinkedList& operator=(const LinkedList&);
 	~LinkedList();
@@ -29,6 +27,7 @@ public:
 	void remove(size_t);
 	void print();
 	const size_t gerCurSize() const;
+	const Student getStudent() const;
 
 private:
 

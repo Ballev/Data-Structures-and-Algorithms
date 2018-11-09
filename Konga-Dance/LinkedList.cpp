@@ -9,6 +9,9 @@ LinkedList & LinkedList::operator=(const LinkedList & other) {
 	if (this != &other) {
 
 		clean();
+		frontPtr = other.frontPtr;
+		backPtr = other.backPtr;
+		curSize = other.curSize;
 
 	}
 
@@ -217,11 +220,4 @@ bool LinkedList::isComparable(const Student & newStudent, size_t pos) {
 		return false;
 
 	}
-
-//	if ((newStudent.getFaculty() == 0 && newStudent.getFaculty == 2) || (newStudent.getFaculty == 1 && newStudent.getFaculty == 0) ){
-
-		std::cerr << "This student is a spy! He is from other University!" << std::endl;
-		return false;
-
-	
 }
